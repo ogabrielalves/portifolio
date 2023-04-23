@@ -1,0 +1,24 @@
+.container {
+  background-color: var(--background-color) !important;
+  border: 1.5px solid var(--border) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+  height: 250px;
+  padding: 15px 5px;
+  transition: 0.55s;
+
+  .text {
+    text-align: center;
+  }
+
+  .chip {
+    background: var(--primary-color);
+  }
+}
+
+.container:hover {
+  background-color: var(--hover-card) !important;
+}

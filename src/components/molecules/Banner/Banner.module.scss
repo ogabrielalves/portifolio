@@ -1,0 +1,39 @@
+.container {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  
+}
+
+.myName {
+  color: var(--primary-color);
+  font-size: 3rem;
+}
+
+.describe {
+  font-size: 1.56rem;
+}
+
+.aboutMe {
+  border: 3px solid var(--white);
+  padding: 20px;
+  font-size: 1.25rem;
+  margin-top: 50px;
+  text-align: center;
+
+  p {
+    margin-bottom: 4px;
+  }
+
+  span {
+    background-color: var(--primary-color);
+    font-weight: 700;
+  }
+}
+
+.skills {
+  margin-top: 20px;
+}
