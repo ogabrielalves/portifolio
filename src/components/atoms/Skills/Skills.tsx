@@ -1,3 +1,4 @@
+import style from "./Skills.module.scss";
 import * as React from "react";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
@@ -23,9 +24,9 @@ export default function Skills() {
   return (
     <>
       <Stack spacing={1} alignItems="center">
-        <Stack direction="row" spacing={1}>
+        <Stack className={style.container}>
           {chipData.map((data) => {
-            return <Chip sx={{background: 'var(--primary-color)'}}  label={data.label} />;
+            return <Chip className={style.chip} label={data.label} />;
           })}
         </Stack>
       </Stack>

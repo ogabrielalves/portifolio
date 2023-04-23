@@ -11,7 +11,6 @@ function NavBar() {
         </div>
         <div className={style.right}>
           <Link to={"/"}>Quem sou eu</Link>
-          <Link to={"#"}>Habilidades</Link>
           <Link to={"/projects"}>Projetos</Link>
           <Link to={"#"}>Contato</Link>
         </div>

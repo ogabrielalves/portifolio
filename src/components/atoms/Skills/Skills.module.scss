@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.chip {
+  background-color: var(--primary-color);
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 5px 9%;
+  }
+
+  
+}
