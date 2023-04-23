@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row !important;
 }
 .chip {
   background-color: var(--primary-color);
@@ -9,11 +9,9 @@
 
 @media (max-width: 768px) {
   .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
-    padding: 5px 9%;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 15px !important;
+    padding: 5px 9% !important;
   }
-
-  
 }

@@ -26,7 +26,13 @@ export default function Skills() {
       <Stack spacing={1} alignItems="center">
         <Stack className={style.container}>
           {chipData.map((data) => {
-            return <Chip className={style.chip} label={data.label} />;
+            return (
+              <Chip
+              className={style.chip}
+                sx={{ background: "var(--primary-color)" }}
+                label={data.label}
+              />
+            );
           })}
         </Stack>
       </Stack>
