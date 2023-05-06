@@ -8,6 +8,7 @@ interface RepositoryData {
   description: string;
   html_url: string;
   language: string;
+  id: number;
 }
 
 function Projects() {
@@ -16,7 +17,15 @@ function Projects() {
   useEffect(() => {
     fetch("https://api.github.com/users/ogabrielalves/repos")
       .then((response) => response.json())
-      .then((data) => setRepositories(data));
+      .then((data) => {
+        const filteredData = data.filter(
+          (obj: RepositoryData) => obj.id !== 394039119
+        );
+        setRepositories(filteredData);
+      })
+      .catch((error) => {
+        console.error("Erro:", error);
+      });
   }, []);
   return (
     <>
