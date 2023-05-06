@@ -1,5 +1,6 @@
-import { NavBar } from "../../components/atoms/NavBar";
 import { useState, useEffect } from "react";
+import axios from "axios";
+import { NavBar } from "../../components/atoms/NavBar";
 import { RepositoryCard } from "../../components/atoms/RepositoryCard";
 import style from "./Project.module.scss";
 
@@ -15,11 +16,11 @@ function Projects() {
   const [repositories, setRepositories] = useState<RepositoryData[]>([]);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/ogabrielalves/repos")
-      .then((response) => response.json())
-      .then((data) => {
-        const filteredData = data.filter(
-          (obj: RepositoryData) => obj.id !== 394039119
+    axios
+      .get("https://api.github.com/users/ogabrielalves/repos")
+      .then((response) => {
+        const filteredData = response.data.filter(
+          (obj: RepositoryData) => obj.id !== 394039119 && obj.id !== 348400601
         );
         setRepositories(filteredData);
       })
