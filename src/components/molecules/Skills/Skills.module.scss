@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  u {
+    margin: 30px 0;
+  }
+}
+
+.skillsBox {
+  display: flex;
+}
+
+.skillItem {
+  border: 2px solid white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70px;
+  padding: 40px 20px;
+  max-width: 70px;
+  background-color: rgba(0, 0, 0, 0.329);
+  margin-left: 10px;
+
+  span {
+    margin-top: 20px;
+  }
+}
