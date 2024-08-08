@@ -13,6 +13,7 @@ function NavBar() {
           <Link to={"/"}>Quem sou eu</Link>
           <Link to={"/projects"}>Projetos</Link>
           <Link to={"/contact"}>Contato</Link>
+          <Link to={"/principal"}>TESTE</Link>
         </div>
       </nav>
   );
