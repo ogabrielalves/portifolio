@@ -4,7 +4,6 @@ import { Skills } from "../../components/molecules/Skills";
 import { Experience } from "../../components/atoms/Experience";
 import { Section } from "../../components/atoms/Section";
 
-import DownloadIcon from "@mui/icons-material/Download";
 import { Graduation } from "../../components/atoms/Graduation";
 import { Header } from "../../components/molecules/Header";
 
