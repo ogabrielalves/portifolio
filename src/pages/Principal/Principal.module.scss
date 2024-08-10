@@ -82,126 +82,21 @@
 }
 
 .bgPrimary {
-  background-color: rgb(30, 0, 255);
+  background-color: var(--blue);
 }
 
 .bgTeal {
-  background-color: rgb(255, 72, 173);
+  background-color: var(--teal);
 }
 
 .bgPurple {
-  background-color: rgb(140, 0, 215);
+  background-color: var(--purple);
 }
 
 .container {
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 220vh;
+  height: 100vh;
   flex-direction: column;
   position: relative;
-}
-
-.title {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-.subTitle {
-  font-size: 30px;
-  font-weight: 200;
-}
-
-.profileImg {
-  width: 6%;
-  border-radius: 50%;
-}
-
-.socialMedia {
-  display: flex;
-  width: 40%;
-  justify-content: space-between;
-  margin-top: 40px;
-}
-
-.socialMediaItem {
-  border: 2px solid rgb(132, 0, 255);
-  border-radius: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90px;
-  padding: 10px 15px;
-}
-
-.description {
-  width: 60%;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.titleDescription {
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.subTitleDescription {
-  font-weight: 200;
-}
-
-.downloadCV {
-  margin-top: 20px;
-  border: 1px solid white;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 10%;
-  padding: 10px 60px;
-  transition: 0.7s;
-  cursor: pointer;
-}
-
-.downloadCV:hover {
-  border: 1px solid rgb(132, 0, 255);
-  background-color: rgb(132, 0, 255);
-}
-
-.skills {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.skillsBox {
-  display: flex;
-}
-
-.skillItem {
-  border: 2px solid white;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 70px;
-  padding: 40px 20px;
-  max-width: 70px;
-  background-color: rgba(0, 0, 0, 0.329);
-  margin-left: 10px;
-
-  span {
-    margin-top: 20px;
-  }
-}
-
-.experiences {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 50px;
 }

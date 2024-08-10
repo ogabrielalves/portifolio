@@ -1,15 +1,22 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   u {
     margin: 30px 0;
   }
 }
 
 .skillsBox {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .skillItem {
@@ -21,9 +28,8 @@
   flex-direction: column;
   height: 70px;
   padding: 40px 20px;
-  max-width: 70px;
   background-color: rgba(0, 0, 0, 0.329);
-  margin-left: 10px;
+  text-align: center;
 
   span {
     margin-top: 20px;
