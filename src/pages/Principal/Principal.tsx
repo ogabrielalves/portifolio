@@ -42,7 +42,7 @@ function Principal() {
 
         <Experience />
 
-        <Section title="Formação" subtitle="Estas é minha formação." />
+        <Section title="Formação" subtitle="Esta é minha formação." />
 
         <Graduation />
       </div>
