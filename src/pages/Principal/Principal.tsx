@@ -3,8 +3,9 @@ import style from "./Principal.module.scss";
 import { Skills } from "../../components/molecules/Skills";
 import { Experience } from "../../components/atoms/Experience";
 import { Section } from "../../components/atoms/Section";
-
 import { Graduation } from "../../components/atoms/Graduation";
+import { Projects } from "../../components/atoms/Projects";
+
 import { Header } from "../../components/molecules/Header";
 
 function Principal() {
@@ -45,6 +46,14 @@ function Principal() {
         <Section title="Formação" subtitle="Esta é minha formação." />
 
         <Graduation />
+
+        <Section
+          title="Projetos"
+          subtitle="Projetos nos quais atuei diretamente."
+        />
+
+       <Projects />
+
       </div>
     </div>
   );
