@@ -14,7 +14,8 @@ function DownloadButton() {
     setTimeout(() => {
       setActive(false);
       setCompleted(true);
-      window.location.href = "https://www.dropbox.com/scl/fi/zthmrndonzztv0q93jea6/Curriculum-Gabriel-Alves.pdf?rlkey=zxmcjwrt5mh5l7qine8ssg9do&st=fwtdcnsj&dl=1";
+      window.location.href = "https://www.dropbox.com/scl/fi/eumct59fn4nh2jbuk7b68/Curr-culo-Gabriel-Fullstack.pdf?rlkey=u3ua9g19b739rcyjsbbnyxb0r&st=dmejlfw5&dl=1";
+      
     }, 6000);
   };
 
