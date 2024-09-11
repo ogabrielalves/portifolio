@@ -31,7 +31,7 @@ function Principal() {
 
         <Section
           title="Habilidades"
-          subtitle="Algumas de minhas habilidas mais destacadas."
+          subtitle="Algumas de minhas habilidades mais destacadas."
         />
 
         <Skills />
