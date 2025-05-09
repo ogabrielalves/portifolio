@@ -14,7 +14,7 @@ function DownloadButton() {
     setTimeout(() => {
       setActive(false);
       setCompleted(true);
-      window.location.href = "https://www.dropbox.com/scl/fi/eumct59fn4nh2jbuk7b68/Curr-culo-Gabriel-Fullstack.pdf?rlkey=u3ua9g19b739rcyjsbbnyxb0r&st=dmejlfw5&dl=1";
+      window.location.href = "https://www.dropbox.com/scl/fi/p18hlxisxcqm2z6wztf7b/Curr-culo-Fullstack-Gabriel-Alves.pdf?rlkey=bjwncwyjcj7sgkwt81qtmavyx&st=g2qly5s8&dl=1";
       
     }, 6000);
   };
