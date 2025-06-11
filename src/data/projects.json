@@ -1,0 +1,55 @@
+
+{
+  "projects": [
+    {
+      "title": "Aplicação ERP Web para Microempreendedores",
+      "description": "Desenvolvi um ERP Web focado na gestão de microempreendedores, abrangendo controle de produtos, clientes e fornecedores. Implementei um PDV rápido e ferramentas de análise de vendas com gráficos.",
+      "technologies": ["Java Spring Boot", "React.js", "Azure", "NGINX", "AWS (EC2)", "Load Balance"],
+      "icon": "Server",
+      "features": ["Controle de produtos", "Gestão de clientes", "PDV rápido", "Análise de vendas"],
+      "color": "blue"
+    },
+    {
+      "title": "Aplicação de Monitoramento de Hardware",
+      "description": "Desenvolvi uma aplicação desktop para monitoramento em tempo real de hardware, com alertas automáticos para uso excessivo de recursos. A aplicação notifica o usuário via Slack sobre o desempenho de CPU, memória RAM, espaço em disco e GPU.",
+      "technologies": ["Java 8", "React.js", "Maven", "Azure"],
+      "icon": "Monitor",
+      "features": ["Monitoramento em tempo real", "Alertas automáticos", "Integração Slack", "Análise de performance"],
+      "color": "purple"
+    },
+    {
+      "title": "Sistema de Vigilância com Integração de IA",
+      "description": "Desenvolvi o back-end de um sistema de vigilância integrado com IA, responsável pela gestão de empresas e unidades, definição de planos comerciais e geração automática de contratos.",
+      "technologies": ["Java Spring Boot", "Spring Security", "PostgreSQL", "AWS"],
+      "icon": "Shield",
+      "features": ["Gestão de empresas", "Planos comerciais", "Geração de contratos", "Controle de acesso"],
+      "color": "green"
+    },
+    {
+      "title": "Aplicação de Monitoramento de Consumo de Energia",
+      "description": "Desenvolvi uma aplicação que monitora o consumo de energia e otimiza o uso de eletricidade, incluindo controle de brilho de lâmpadas com base na luz natural.",
+      "technologies": ["Node.js", "React.js", "Azure", "Arduino"],
+      "icon": "Lightbulb",
+      "features": ["Monitoramento de energia", "Otimização automática", "Controle de iluminação", "Integração IoT"],
+      "color": "cyan"
+    }
+  ],
+  "githubProjects": [
+    {
+      "title": "Sistema de Gestão Bancária",
+      "description": "Sistema completo para gestão bancária com operações de depósito, saque e transferência",
+      "language": "Java",
+      "stars": 15,
+      "forks": 8,
+      "color": "yellow"
+    },
+    {
+      "title": "Dashboard Analytics",
+      "description": "Dashboard moderno para análise de dados com gráficos interativos",
+      "language": "React",
+      "stars": 23,
+      "forks": 12,
+      "color": "green"
+    }
+  ]
+}
