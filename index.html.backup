@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gabriel Alves | Software Developer</title>
+    <meta name="description" content="Portfólio de Gabriel Alves — Software Developer especializado em Java, Spring Boot e APIs REST." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Devicons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --bg-card: #111111;
+        --text: #ffffff;
+        --text-muted: #888888;
+        --accent: #ffffff;
+        --border: #222222;
+        --shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 55%),
+          linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+        color: var(--text);
+        overflow-x: hidden;
+        cursor: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1120px, 92vw);
+        margin: 0 auto;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* Navbar */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        backdrop-filter: blur(12px);
+        background: rgba(10, 10, 10, 0.65);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.1rem 1.5rem;
+      }
+
+      .logo {
+        display: inline-flex;
+        gap: 0.5rem;
+        align-items: center;
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 800;
+        font-size: 1.15rem;
+        letter-spacing: 0.09rem;
+        color: var(--text);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.6rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        position: relative;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.85);
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.25rem;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .btn-resume {
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 0.55rem 1rem;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      }
+
+      .btn-resume:hover {
+        border-color: var(--accent);
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-1px);
+      }
+
+      .btn-resume svg {
+        width: 1rem;
+        height: 1rem;
+        fill: currentColor;
+      }
+
+      .hamburger {
+        display: none;
+        width: 2rem;
+        height: 2rem;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hamburger span,
+      .hamburger span::before,
+      .hamburger span::after {
+        display: block;
+        width: 1.35rem;
+        height: 2px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.88);
+        position: relative;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .hamburger span::before,
+      .hamburger span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+
+      .hamburger span::before {
+        top: -0.44rem;
+      }
+
+      .hamburger span::after {
+        top: 0.44rem;
+      }
+
+      .nav-open .hamburger span {
+        transform: rotate(45deg);
+      }
+
+      .nav-open .hamburger span::before {
+        transform: rotate(90deg);
+        top: 0;
+      }
+
+      .nav-open .hamburger span::after {
+        opacity: 0;
+      }
+
+      .mobile-nav {
+        position: fixed;
+        inset: 0;
+        padding: 6rem 1.5rem 2rem;
+        display: none;
+        flex-direction: column;
+        gap: 1.3rem;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(18px);
+      }
+
+      .mobile-nav a {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .mobile-nav .btn-resume {
+        width: fit-content;
+        padding: 0.75rem 1.15rem;
+      }
+
+      .nav-open .mobile-nav {
+        display: flex;
+      }
+
+      /* Hero */
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+        overflow: hidden;
+      }
+
+      .hero__content {
+        position: relative;
+        padding: 7.5rem 2.5rem 4.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.2rem;
+      }
+
+      .hero__title {
+        font-family: "DM Sans", sans-serif;
+        font-size: clamp(2.8rem, 5vw, 5.5rem);
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        margin: 0;
+      }
+
+      .hero__subtitle {
+        font-family: "DM Sans", sans-serif;
+        font-size: clamp(1.4rem, 3vw, 2.3rem);
+        font-weight: 300;
+        letter-spacing: 0.03em;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .hero__text {
+        max-width: 540px;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .hero__social {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .social-link {
+        width: 2.4rem;
+        height: 2.4rem;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 0.85rem;
+        transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      }
+
+      .social-link:hover {
+        border-color: var(--accent);
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .social-link svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        fill: currentColor;
+      }
+
+      .hero__image {
+        position: relative;
+        display: grid;
+        place-items: center;
+        overflow: visible;
+        background: #0a0a0a;
+      }
+
+      .hero__image img {
+        width: 380px;
+        height: 380px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        filter: grayscale(100%) contrast(1.05) brightness(1.1);
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 8px 60px rgba(0, 0, 0, 0.6);
+      }
+
+      /* Section base */
+      section {
+        padding: 6rem 0;
+      }
+
+      .section-title {
+        font-family: "DM Sans", sans-serif;
+        font-size: clamp(2.3rem, 4vw, 3.2rem);
+        font-weight: 800;
+        letter-spacing: -0.015em;
+        margin: 0 0 1.2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 740px;
+        line-height: 1.7;
+        margin: 0 0 2.5rem;
+      }
+
+      .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 1.1rem;
+        box-shadow: var(--shadow);
+        padding: 1.8rem;
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        border-color: var(--accent);
+        box-shadow: 0 30px 65px rgba(0, 0, 0, 0.55);
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.85s ease, transform 0.85s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* About (code) */
+      .code-window {
+        border: 1px solid #30363d;
+        border-radius: 1rem;
+        background: #0d1117;
+        overflow: hidden;
+        font-family: "JetBrains Mono", monospace;
+        box-shadow: 0 28px 60px rgba(0, 0, 0, 0.6);
+      }
+
+      .code-tab {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.9rem 1.2rem;
+        background: rgba(18, 20, 24, 0.85);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .code-tab span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.22rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .code-tab span:first-child {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        font-weight: 700;
+      }
+
+      .code-tab .close {
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.16);
+        position: relative;
+      }
+
+      .code-tab .close::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4), transparent 55%);
+      }
+
+      .code-block {
+        padding: 1.6rem 1.5rem 2.2rem;
+        overflow-x: auto;
+        font-size: 0.95rem;
+        line-height: 1.52;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .code-block .token--keyword {
+        color: #c084fc;
+      }
+
+      .code-block .token--class {
+        color: #facc15;
+      }
+
+      .code-block .token--type {
+        color: #60a5fa;
+      }
+
+      .code-block .token--method {
+        color: #fde68a;
+      }
+
+      .code-block .token--variable {
+        color: #ffffff;
+      }
+
+      .code-block .token--operator {
+        color: #ffffff;
+      }
+
+      .code-block .token--string {
+        color: #4ade80;
+      }
+
+      .code-block .token--number {
+        color: #fdba74;
+      }
+
+      .code-block .token--comment {
+        color: #6b7280;
+      }
+
+      .code-block .token--builtin {
+        color: #7dd3fc;
+      }
+
+      .code-block .token--bracket {
+        color: #fb923c;
+      }
+
+      /* Experience */
+      .timeline {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-top: 2.5rem;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 1.15rem;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+        border-radius: 999px;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding: 1.6rem 1.8rem 1.8rem 2.75rem;
+        margin-bottom: 2.1rem;
+        border-radius: 1.2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 0.9rem;
+        top: 1.62rem;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+      }
+
+      .timeline-item:hover {
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .timeline-item h4 {
+        margin: 0;
+        font-size: 1.35rem;
+        font-weight: 800;
+      }
+
+      .timeline-item .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.1rem;
+        margin: 0.4rem 0 1.1rem;
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.95rem;
+      }
+
+      .timeline-item p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.65;
+      }
+
+      .timeline-item .tag {
+        display: inline-flex;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        background: rgba(96, 165, 250, 0.1);
+        border: 1px solid rgba(96, 165, 250, 0.2);
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+        gap: 1.3rem;
+      }
+
+      .skill-card {
+        padding: 1.55rem 1.25rem;
+        border-radius: 1.1rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(18, 20, 25, 0.72);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        transition: transform 0.25s ease, border-color 0.25s ease;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .skill-card .skill-head {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .skill-card .skill-icon {
+        display: grid;
+        place-items: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.85rem;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 1.1rem;
+      }
+
+      .skill-card .skill-title {
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .progress {
+        height: 0.5rem;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .progress > div {
+        height: 100%;
+        background: linear-gradient(90deg, rgba(96, 165, 250, 0.9), rgba(96, 165, 250, 0.4));
+        border-radius: 999px;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.7s ease;
+      }
+
+      .progress[data-visible="true"] > div {
+        transform: scaleX(1);
+      }
+
+      /* Projects */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .project-card {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(15, 15, 15, 0.85);
+        border-radius: 1.2rem;
+        padding: 1.6rem;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+        transition: transform 0.25s ease, border-color 0.25s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .project-card h4 {
+        margin: 0 0 0.6rem;
+        font-size: 1.25rem;
+        font-weight: 800;
+      }
+
+      .project-card p {
+        margin: 0 0 1rem;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin-bottom: 1rem;
+      }
+
+      .project-tag {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.65rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 0.55rem 0.85rem;
+        border-radius: 999px;
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .project-link:hover {
+        border-color: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateY(-1px);
+      }
+
+      .project-link svg {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      /* Freelance Projects */
+      .freelance-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+
+      .freelance-card {
+        background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+        border: 1px solid #222222;
+        border-radius: 1.2rem;
+        padding: 2rem;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+
+      .freelance-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .freelance-card .icon-box {
+        width: 56px;
+        height: 56px;
+        border-radius: 0.85rem;
+        display: grid;
+        place-items: center;
+        font-size: 28px;
+        margin-bottom: 1.5rem;
+      }
+
+      .freelance-card h4 {
+        margin: 0 0 0.8rem;
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: #ffffff;
+      }
+
+      .freelance-card > p {
+        margin: 0 0 1.2rem;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      .freelance-features {
+        margin-bottom: 1.5rem;
+      }
+
+      .freelance-features p {
+        margin: 0 0 0.6rem;
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 0.9rem;
+      }
+
+      .freelance-features ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .freelance-features li {
+        margin-bottom: 0.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+
+      .freelance-features li::before {
+        content: "• ";
+        color: #60a5fa;
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+
+      .freelance-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .freelance-tag {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        background: #1a1a1a;
+        border: 1px solid #333333;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.85);
+        transition: border-color 0.3s ease;
+      }
+
+      .freelance-card:hover .freelance-tag {
+        border-color: #60a5fa;
+      }
+
+      /* Contact */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .contact-card {
+        background: rgba(16, 16, 16, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1.15rem;
+        padding: 1.8rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      }
+
+      .contact-card h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .contact-card a {
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .contact-card a:hover {
+        color: var(--accent);
+      }
+
+      .social-grid {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.4rem;
+      }
+
+      /* Custom cursor */
+      #cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.7);
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(0.9);
+        transition: transform 0.15s ease-out, background 0.15s ease-out;
+        z-index: 9999;
+        mix-blend-mode: difference;
+      }
+
+      .cursor--hover {
+        transform: translate(-50%, -50%) scale(1.4);
+        background: rgba(255, 255, 255, 1);
+      }
+
+      /* Footer */
+      footer {
+        padding: 4rem 0 2.5rem;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.9rem;
+      }
+
+      footer a {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      footer a:hover {
+        color: var(--accent);
+      }
+
+      /* Responsive */
+      @media (max-width: 960px) {
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: 100vh;
+        }
+
+        .hero__image {
+          height: 55vh;
+        }
+
+        .hero__content {
+          padding: 6rem 1.6rem 3.5rem;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .hero__image {
+          height: 48vh;
+        }
+
+        .hero__text {
+          font-size: 1rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .code-block {
+          font-size: 0.9rem;
+        }
+
+        .timeline {
+          padding-left: 1rem;
+        }
+
+        .timeline::before {
+          left: 1rem;
+        }
+
+        .timeline-item {
+          padding-left: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="cursor" aria-hidden="true"></div>
+
+    <header>
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="logo" href="#hero" aria-label="Início">
+          <span>GA</span>
+        </a>
+
+        <div class="nav-links" aria-hidden="true">
+          <a href="#about">Sobre</a>
+          <a href="#experience">Experiência</a>
+          <a href="#skills">Skills</a>
+        </div>
+
+        <a class="btn-resume" href="#contact" aria-label="Ver Currículo">
+          Currículo
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 16.5l-5-5h3.5V6.5h3v5h3.5l-5 5zM6 18.5h12v1.5H6v-1.5z" />
+          </svg>
+        </a>
+
+        <button class="hamburger" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+        </button>
+      </nav>
+
+      <div class="mobile-nav" aria-label="Menu móvel">
+        <a href="#about" class="mobile-link">Sobre</a>
+        <a href="#experience" class="mobile-link">Experiência</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a class="btn-resume" href="#contact">Currículo</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="hero__content" data-animate>
+          <p class="hero__subtitle" style="opacity: 0.85;">Software Developer</p>
+          <h1 class="hero__title">GABRIEL ALVES</h1>
+          <p class="hero__text">
+            Desenvolvedor Full Stack com experiência sólida em ReactJS, VueJS, C# e Java Spring Boot. Especializado no desenvolvimento de soluções web, sistemas ERP, plataformas bancárias, cloud computing e WordPress. Apaixonado por tecnologia, performance e experiências digitais escaláveis.
+          </p>
+
+          <div class="hero__social">
+            <a
+              class="social-link"
+              href="https://www.linkedin.com/in/gabriel-alves-ba0064192"
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M20.45 20.45h-3.55V14.8c0-1.35-.03-3.08-1.88-3.08-1.88 0-2.17 1.47-2.17 2.99v5.74H9.35V9h3.4v1.56h.05c.47-.9 1.62-1.85 3.34-1.85 3.57 0 4.23 2.35 4.23 5.41v6.33zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.55V9h3.57v11.45z"
+                />
+              </svg>
+            </a>
+
+            <a
+              class="social-link"
+              href="https://github.com/ogabrielalves"
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="GitHub"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 2a10 10 0 0 0-3.16 19.47c.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.63.07-.62.07-.62 1.01.07 1.54 1.04 1.54 1.04.9 1.54 2.35 1.1 2.92.84.09-.65.35-1.1.64-1.35-2.22-.25-4.55-1.11-4.55-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.62 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 2.5-.34 9.6 9.6 0 0 1 2.5.34c1.9-1.29 2.74-1.02 2.74-1.02.55 1.36.2 2.37.1 2.62.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.33-.01 2.4-.01 2.73 0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__image" aria-hidden="true">
+          <img src="src/img/gabriel-profile.png" alt="Foto de Gabriel Alves" />
+        </div>
+      </section>
+
+      <section id="about" class="container" data-animate>
+        <h2 class="section-title">Sobre mim</h2>
+        <p class="section-subtitle">
+          Uma pequena amostra do que gosto de fazer em formato de código — como se estivesse abrindo um arquivo no VS Code.
+        </p>
+
+        <div class="code-window">
+          <div class="code-tab">
+            <span>☕</span>
+            <span>AboutMe.java</span>
+            <span class="close" aria-hidden="true"></span>
+          </div>
+          <pre class="code-block" aria-label="Código simulando arquivo AboutMe.java">
+<span class="token--keyword">public</span> <span class="token--keyword">class</span> <span class="token--class">AboutMe</span> {
+
+    <span class="token--keyword">private</span> <span class="token--keyword">static</span> <span class="token--keyword">final</span> <span class="token--type">String</span> <span class="token--variable">name</span>      <span class="token--operator">=</span> <span class="token--string">"Gabriel"</span>;
+    <span class="token--keyword">private</span> <span class="token--keyword">static</span> <span class="token--keyword">final</span> <span class="token--type">String</span> <span class="token--variable">lastname</span>  <span class="token--operator">=</span> <span class="token--string">"Alves"</span>;
+    <span class="token--keyword">private</span> <span class="token--keyword">static</span> <span class="token--keyword">final</span> <span class="token--type">String</span> <span class="token--variable">gender</span>    <span class="token--operator">=</span> <span class="token--string">"Male"</span>;
+
+    <span class="token--keyword">private</span> <span class="token--keyword">static</span> <span class="token--keyword">final</span> <span class="token--type">String</span><span class="token--bracket">[]</span> <span class="token--variable">hobbies</span> <span class="token--operator">=</span> <span class="token--bracket">{</span>
+        <span class="token--string">"Music"</span>, <span class="token--string">"Coding"</span>, <span class="token--string">"Gaming"</span>, <span class="token--string">"Football"
+</span>    <span class="token--bracket">}</span>;
+
+    <span class="token--keyword">public</span> <span class="token--keyword">static</span> <span class="token--type">int</span> <span class="token--method">getAge</span>() {
+        <span class="token--type">LocalDate</span> <span class="token--variable">birthday</span> <span class="token--operator">=</span> <span class="token--type">LocalDate</span>.<span class="token--builtin">of</span>(<span class="token--number">2000</span>, <span class="token--number">5</span>, <span class="token--number">10</span>);
+        <span class="token--keyword">return</span> <span class="token--type">Period</span>.<span class="token--builtin">between</span>(<span class="token--variable">birthday</span>, <span class="token--type">LocalDate</span>.<span class="token--builtin">now</span>()).<span class="token--builtin">getYears</span>();
+        <span class="token--comment">// return XX</span>
+    }
+
+    <span class="token--keyword">private</span> <span class="token--keyword">static</span> <span class="token--keyword">final</span> <span class="token--type">String</span> <span class="token--variable">education</span> <span class="token--operator">=</span> <span class="token--string">"ADS — SPTech School"</span>;
+    <span class="token--keyword">private</span> <span class="token--keyword">static</span> <span class="token--keyword">final</span> <span class="token--type">String</span> <span class="token--variable">email</span>     <span class="token--operator">=</span> <span class="token--string">"gabrielalvessilva02@outlook.com"</span>;
+
+    <span class="token--keyword">public</span> <span class="token--keyword">static</span> <span class="token--keyword">void</span> <span class="token--method">main</span>(<span class="token--type">String</span><span class="token--bracket">[]</span> <span class="token--variable">args</span>) {
+        <span class="token--builtin">System</span>.<span class="token--builtin">out</span>.<span class="token--builtin">println</span>(<span class="token--string">"você pode ver isso no console!!!"</span>);
+    }
+}
+          </pre>
+        </div>
+      </section>
+
+      <section id="experience" class="container" data-animate>
+        <h2 class="section-title">Experiência</h2>
+        <p class="section-subtitle">
+          Uma linha do tempo com os principais estágios que contribuíram para minha jornada profissional.
+        </p>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <h4>C6 Bank — Estagiário de Desenvolvimento</h4>
+            <div class="meta">
+              <span>Jul 2022 — Dez 2023</span>
+              <span>São Paulo, SP</span>
+            </div>
+            <p>
+              Atuei como estagiário de desenvolvimento em Web Banking, apoiando a construção de APIs REST e
+              implementando features em ReactJS para melhorar a experiência de clientes PJ.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <h4>PayGo — Estagiário de Desenvolvimento</h4>
+            <div class="meta">
+              <span>Jan 2021 — Jun 2022</span>
+              <span>São Paulo, SP</span>
+            </div>
+            <p>
+              Desenvolvi componentes e integrações para o painel de controle da plataforma, colaborando com a
+              equipe em melhorias de performance e segurança.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="container" data-animate>
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">
+          Tecnologias que uso para construir APIs, aplicações web e mobile com foco em performance e confiabilidade.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-card" data-progress="0.95">
+            <div class="skill-head">
+              <div class="skill-icon"><i class="devicon-java-plain colored" aria-hidden="true"></i></div>
+              <p class="skill-title">Java</p>
+            </div>
+            <div class="progress" data-visible="false"><div style="width: 95%;"></div></div>
+          </div>
+
+          <div class="skill-card" data-progress="0.9">
+            <div class="skill-head">
+              <div class="skill-icon"><i class="devicon-spring-plain colored" aria-hidden="true"></i></div>
+              <p class="skill-title">Spring Boot</p>
+            </div>
+            <div class="progress" data-visible="false"><div style="width: 90%;"></div></div>
+          </div>
+
+          <div class="skill-card" data-progress="0.9">
+            <div class="skill-head">
+              <div class="skill-icon"><i class="devicon-react-original colored" aria-hidden="true"></i></div>
+              <p class="skill-title">ReactJS</p>
+            </div>
+            <div class="progress" data-visible="false"><div style="width: 90%;"></div></div>
+          </div>
+
+          <div class="skill-card" data-progress="0.78">
+            <div class="skill-head">
+              <div class="skill-icon"><i class="devicon-react-original colored" aria-hidden="true"></i></div>
+              <p class="skill-title">React Native</p>
+            </div>
+            <div class="progress" data-visible="false"><div style="width: 78%;"></div></div>
+          </div>
+
+          <div class="skill-card" data-progress="0.82">
+            <div class="skill-head">
+              <div class="skill-icon"><i class="devicon-csharp-plain colored" aria-hidden="true"></i></div>
+              <p class="skill-title">C#</p>
+            </div>
+            <div class="progress" data-visible="false"><div style="width: 82%;"></div></div>
+          </div>
+
+          <div class="skill-card" data-progress="0.86">
+            <div class="skill-head">
+              <div class="skill-icon"><i class="devicon-docker-plain colored" aria-hidden="true"></i></div>
+              <p class="skill-title">Docker</p>
+            </div>
+            <div class="progress" data-visible="false"><div style="width: 86%;"></div></div>
+          </div>
+
+          <div class="skill-card" data-progress="0.9">
+            <div class="skill-head">
+              <div class="skill-icon"><i class="devicon-git-plain colored" aria-hidden="true"></i></div>
+              <p class="skill-title">Git</p>
+            </div>
+            <div class="progress" data-visible="false"><div style="width: 90%;"></div></div>
+          </div>
+
+          <div class="skill-card" data-progress="0.9">
+            <div class="skill-head">
+              <div class="skill-icon"><i class="devicon-rest-plain colored" aria-hidden="true"></i></div>
+              <p class="skill-title">REST APIs</p>
+            </div>
+            <div class="progress" data-visible="false"><div style="width: 90%;"></div></div>
+          </div>
+
+          <div class="skill-card" data-progress="0.78">
+            <div class="skill-head">
+              <div class="skill-icon"><i class="devicon-postgresql-plain colored" aria-hidden="true"></i></div>
+              <p class="skill-title">SQL</p>
+            </div>
+            <div class="progress" data-visible="false"><div style="width: 78%;"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="container" data-animate>
+        <h2 class="section-title">Projetos</h2>
+        <p class="section-subtitle">
+          Alguns dos projetos que mantive no GitHub, com foco em backend em Java e experiências interativas.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <h4>Séries Tracker</h4>
+            <p>
+              Aplicação web que acompanha séries e episódios, com backend em Spring Boot e frontend em React.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Java</span>
+              <span class="project-tag">Spring Boot</span>
+              <span class="project-tag">React</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/ogabrielalves/series-tracker"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Ver no GitHub
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zm-4 4H3v14h14v-7h2v9H1V7h9v2z"
+                />
+              </svg>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <h4>VaporWave Cyber</h4>
+            <p>
+              Landing page com estilo vaporwave para apresentar conceitos de segurança cibernética.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/ogabrielalves/vaporwave-cyber"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Ver no GitHub
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zm-4 4H3v14h14v-7h2v9H1V7h9v2z"
+                />
+              </svg>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <h4>API de Segurança</h4>
+            <p>
+              API RESTful construída com Spring Boot para autenticação, autorização e gestão de usuários.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Spring Boot</span>
+              <span class="project-tag">REST</span>
+              <span class="project-tag">JWT</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/ogabrielalves/security-api"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Ver no GitHub
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zm-4 4H3v14h14v-7h2v9H1V7h9v2z"
+                />
+              </svg>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section id="freelance" class="container" data-animate>
+        <h2 class="section-title">Projetos Freelance</h2>
+        <p class="section-subtitle">
+          Projetos de maior impacto que desenvolvi com foco em sistemas enterprise, cloud computing e soluções escaláveis.
+        </p>
+
+        <div class="freelance-grid">
+          <article class="freelance-card">
+            <div class="icon-box" style="background: #1e3a5f;">🗂️</div>
+            <h4>Aplicação ERP Web para Microempreendedores</h4>
+            <p>
+              Desenvolvi um ERP Web focado na gestão de microempreendedores, abrangendo controle de produtos, clientes e fornecedores. Implementei um PDV rápido e ferramentas de análise de vendas com gráficos.
+            </p>
+            <div class="freelance-features">
+              <p>Principais funcionalidades:</p>
+              <ul>
+                <li>Controle de produtos</li>
+                <li>Gestão de clientes</li>
+                <li>PDV rápido</li>
+                <li>Análise de vendas</li>
+              </ul>
+            </div>
+            <div class="freelance-tags">
+              <span class="freelance-tag">Java Spring Boot</span>
+              <span class="freelance-tag">React.js</span>
+              <span class="freelance-tag">Azure</span>
+              <span class="freelance-tag">NGINX</span>
+              <span class="freelance-tag">AWS (EC2)</span>
+              <span class="freelance-tag">Load Balance</span>
+            </div>
+          </article>
+
+          <article class="freelance-card">
+            <div class="icon-box" style="background: #3b1f6b;">🖥️</div>
+            <h4>Aplicação de Monitoramento de Hardware</h4>
+            <p>
+              Desenvolvi uma aplicação desktop para monitoramento em tempo real de hardware, com alertas automáticos para uso excessivo de recursos. A aplicação notifica o usuário via Slack sobre o desempenho de CPU, memória RAM, espaço em disco e GPU.
+            </p>
+            <div class="freelance-features">
+              <p>Principais funcionalidades:</p>
+              <ul>
+                <li>Monitoramento em tempo real</li>
+                <li>Alertas automáticos</li>
+                <li>Integração Slack</li>
+                <li>Análise de performance</li>
+              </ul>
+            </div>
+            <div class="freelance-tags">
+              <span class="freelance-tag">Java 8</span>
+              <span class="freelance-tag">React.js</span>
+              <span class="freelance-tag">Maven</span>
+              <span class="freelance-tag">Azure</span>
+            </div>
+          </article>
+
+          <article class="freelance-card">
+            <div class="icon-box" style="background: #1a3d2b;">🛡️</div>
+            <h4>Sistema de Vigilância com Integração de IA</h4>
+            <p>
+              Desenvolvi o back-end de um sistema de vigilância integrado com IA, responsável pela gestão de empresas e unidades, definição de planos comerciais e geração automática de contratos.
+            </p>
+            <div class="freelance-features">
+              <p>Principais funcionalidades:</p>
+              <ul>
+                <li>Gestão de empresas</li>
+                <li>Planos comerciais</li>
+                <li>Geração de contratos</li>
+                <li>Controle de acesso</li>
+              </ul>
+            </div>
+            <div class="freelance-tags">
+              <span class="freelance-tag">Java Spring Boot</span>
+              <span class="freelance-tag">Spring Security</span>
+              <span class="freelance-tag">PostgreSQL</span>
+              <span class="freelance-tag">AWS</span>
+            </div>
+          </article>
+
+          <article class="freelance-card">
+            <div class="icon-box" style="background: #0f3460;">💡</div>
+            <h4>Aplicação de Monitoramento de Consumo de Energia</h4>
+            <p>
+              Desenvolvi uma aplicação que monitora o consumo de energia e otimiza o uso de eletricidade, incluindo controle de brilho de lâmpadas com base na luz natural.
+            </p>
+            <div class="freelance-features">
+              <p>Principais funcionalidades:</p>
+              <ul>
+                <li>Monitoramento de energia</li>
+                <li>Otimização automática</li>
+                <li>Controle de iluminação</li>
+                <li>Integração IoT</li>
+              </ul>
+            </div>
+            <div class="freelance-tags">
+              <span class="freelance-tag">Node.js</span>
+              <span class="freelance-tag">React.js</span>
+              <span class="freelance-tag">Azure</span>
+              <span class="freelance-tag">Arduino</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="container" data-animate>
+        <h2 class="section-title">Contato</h2>
+        <p class="section-subtitle">
+          Vamos conversar? Me envie um e-mail ou encontre-me nas minhas redes profissionais.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:gabrielalvessilva02@outlook.com">gabrielalvessilva02@outlook.com</a>
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <h3>Conectar</h3>
+            <div class="social-grid">
+              <a
+                class="social-link"
+                href="https://github.com/ogabrielalves"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="GitHub"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 2a10 10 0 0 0-3.16 19.47c.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.63.07-.62.07-.62 1.01.07 1.54 1.04 1.54 1.04.9 1.54 2.35 1.1 2.92.84.09-.65.35-1.1.64-1.35-2.22-.25-4.55-1.11-4.55-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.62 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 2.5-.34 9.6 9.6 0 0 1 2.5.34c1.9-1.29 2.74-1.02 2.74-1.02.55 1.36.2 2.37.1 2.62.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.33-.01 2.4-.01 2.73 0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
+                  />
+                </svg>
+              </a>
+              <a
+                class="social-link"
+                href="https://www.linkedin.com/in/gabriel-alves-ba0064192"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="LinkedIn"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M20.45 20.45h-3.55V14.8c0-1.35-.03-3.08-1.88-3.08-1.88 0-2.17 1.47-2.17 2.99v5.74H9.35V9h3.4v1.56h.05c.47-.9 1.62-1.85 3.34-1.85 3.57 0 4.23 2.35 4.23 5.41v6.33zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.55V9h3.57v11.45z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          © <span id="year"></span> Gabriel Alves — Desenvolvedor de Software. Projeto construído como um único
+          <code>index.html</code>.
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      const cursor = document.getElementById('cursor');
+      const nav = document.querySelector('header');
+      const hamburger = document.querySelector('.hamburger');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      const body = document.body;
+
+      const updateCursor = (event) => {
+        cursor.style.left = `${event.clientX}px`;
+        cursor.style.top = `${event.clientY}px`;
+      };
+
+      const interactiveElements = document.querySelectorAll(
+        'a, button, .btn-resume, .social-link, .project-link, .skill-card'
+      );
+
+      interactiveElements.forEach((el) => {
+        el.addEventListener('pointerenter', () => cursor.classList.add('cursor--hover'));
+        el.addEventListener('pointerleave', () => cursor.classList.remove('cursor--hover'));
+        el.addEventListener('focus', () => cursor.classList.add('cursor--hover'));
+        el.addEventListener('blur', () => cursor.classList.remove('cursor--hover'));
+      });
+
+      const toggleMobileNav = () => {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', String(!expanded));
+        document.documentElement.classList.toggle('nav-open');
+      };
+
+      const closeMobileNav = () => {
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.documentElement.classList.remove('nav-open');
+      };
+
+      window.addEventListener('mousemove', updateCursor);
+      window.addEventListener('scroll', () => {
+        const offset = Math.min(window.scrollY / 400, 0.18);
+        nav.style.background = `rgba(10, 10, 10, ${0.6 + offset})`;
+      });
+
+      hamburger.addEventListener('click', toggleMobileNav);
+      mobileLinks.forEach((link) => link.addEventListener('click', closeMobileNav));
+
+      document.querySelectorAll('[data-animate]').forEach((block) => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.18 }
+        );
+        observer.observe(block);
+      });
+
+      document.querySelectorAll('.progress').forEach((bar) => {
+        const parent = bar.closest('.skill-card');
+        const progress = bar.querySelector('div');
+        const percent = Number(parent?.getAttribute('data-progress') || 0);
+        bar.style.setProperty('--progress', String(percent));
+      });
+
+      const animateProgress = () => {
+        document.querySelectorAll('.progress').forEach((bar) => {
+          if (bar.getAttribute('data-visible') === 'true') return;
+          const rect = bar.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            bar.setAttribute('data-visible', 'true');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', animateProgress);
+      window.addEventListener('resize', animateProgress);
+      animateProgress();
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
