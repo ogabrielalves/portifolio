@@ -4,10 +4,16 @@ import { Linkedin, Loader2 } from "lucide-react";
 // --- i18n Dictionary ---
 const translations = {
   pt: {
-    nav: { about: "Sobre Mim", experience: "Experiência", education: "Educação", skills: "Habilidades", projects: "Freelance", resume: "Currículo" },
+    nav: { about: "Sobre Mim", experience: "Experiência", education: "Educação", skills: "Habilidades", projects: "Freelance", resume: "Currículo", contact: "Contato" },
     hero: { title: "Construindo Soluções Digitais Completas", desc: "Sou Gabriel Alves, Desenvolvedor Fullstack e Web Developer com mais de 4 anos de experiência no desenvolvimento de aplicações web robustas e escaláveis. Tenho especialização em ReactJS, VueJS, C# e Java SpringBoot, com vasta experiência em WebBanking, sistemas ERP, desenvolvimento de software, Cloud, WordPress e servidores para análise de bingo." },
     about: { title: "Sobre Mim" },
-    experience: { title: "Experiência", present: "Atual", fbm: "Desenvolvi e aprimorei uma aplicação web interna para configuração de servidores dos cassinos que utilizava Java Springboot, VueJS e PostgreSQL.", c6: "Atuei como estagiário em Web Banking, apoiando a construção de APIs REST e features em ReactJS para melhorar a experiência de clientes PJ.", paygo: "Desenvolvi componentes e integrações para o painel de controle da plataforma, colaborando com a equipe em melhorias de performance." },
+    experience: { 
+      title: "Experiência", 
+      present: "Atual", 
+      fbm: "Desenvolvi e mantive uma aplicação web interna de configuração de servidores para o ambiente de cassinos, com comunicação de baixo nível baseada em protocolos binários (leitura e escrita de bits/bytes para controle de máquinas físicas). O servidor de comunicação era desenvolvido em C#, responsável por interpretar e transmitir comandos às máquinas físicas via protocolo proprietário. Implementei um sistema de monitoramento contínuo de logs em produção, com alertas automatizados para detecção precoce de falhas e anomalias. O frontend configurador foi construído com VueJS, integrado a um backend Java Spring Boot e banco de dados PostgreSQL.", 
+      c6: "Atuei no time de Web Banking desenvolvendo componentes de interface em ReactJS para clientes pessoa jurídica (PJ), seguindo a metodologia Atomic Design para garantir consistência e reusabilidade em escala. Utilizei Storybook para documentação e catalogação dos componentes, facilitando a colaboração entre times de design e engenharia. Também contribuí na construção e manutenção de APIs REST em Java, participando do ciclo completo de desenvolvimento em um ambiente financeiro de alta criticidade.", 
+      paygo: "Desenvolvi componentes e integrações para o painel de controle da plataforma de meios de pagamento, com foco em performance e escalabilidade. Trabalhei com C#, ReactJS e Docker, colaborando diretamente com o time de produto em melhorias de estabilidade e experiência do usuário." 
+    },
     education: { title: "Formação", ads: "Análise e Desenvolvimento de Sistemas" },
     skills: { title: "Habilidades" },
     projects: {
@@ -24,10 +30,11 @@ const translations = {
       p4_title: "Monitoramento de Consumo de Energia",
       p4_desc: "Monitora energia e otimiza o uso de eletricidade, controlando brilho de lâmpadas com base na luz natural.",
       p4_feat: ["Monitoramento", "Otimização automática", "Iluminação", "Integração IoT"]
-    }
+    },
+    contact: { title: "Contato", copied: "Copiado!" }
   },
   en: {
-    nav: { about: "About Me", experience: "Experience", education: "Education", skills: "Skills", projects: "Freelance", resume: "Resume" },
+    nav: { about: "About Me", experience: "Experience", education: "Education", skills: "Skills", projects: "Freelance", resume: "Resume", contact: "Contact" },
     hero: { title: "Fullstack Developer", desc: "Full Stack Developer with solid experience in ReactJS, VueJS, C# and Java Spring Boot. Specialized in web solutions, ERP systems, banking platforms, cloud and WordPress." },
     about: { title: "About Me" },
     experience: { title: "Experience", present: "Present", fbm: "Developed and enhanced an internal web application for configuring casino servers using Java Springboot, VueJS, and PostgreSQL.", c6: "Worked as a Web Banking intern, supporting the construction of REST APIs and ReactJS features to improve the corporate client experience.", paygo: "Developed components and integrations for the platform's control panel, collaborating with the team on performance improvements." },
@@ -47,7 +54,8 @@ const translations = {
       p4_title: "Energy Consumption Monitoring",
       p4_desc: "Monitors energy consumption and optimizes electricity usage, including controlling smart bulb brightness based on natural light.",
       p4_feat: ["Monitoring", "Auto Optimization", "Lighting", "IoT Integration"]
-    }
+    },
+    contact: { title: "Contact", copied: "Copied!" }
   }
 };
 
@@ -91,12 +99,79 @@ const FadeIn = ({ children, delay = 0 }: { children: ReactNode; delay?: number }
 // --- Helpers ---
 const getTagColors = (tag: string) => {
   const t = tag.toLowerCase();
+  if (t.includes('kotlin')) return { border: '#22C55E', bg: 'rgba(34, 197, 94, 0.1)', text: '#86EFAC' };
+  if (t.includes('sql server') || t.includes('mysql')) return { border: '#EF4444', bg: 'rgba(239, 68, 68, 0.1)', text: '#FCA5A5' };
+  if (t.includes('jasper')) return { border: '#F59E0B', bg: 'rgba(245, 158, 11, 0.1)', text: '#FCD34D' };
+  if (t.includes('c++')) return { border: '#3B82F6', bg: 'rgba(59, 130, 246, 0.1)', text: '#93C5FD' };
   if (t.includes('java') || t.includes('spring')) return { border: '#7C3AED', bg: 'rgba(124, 58, 237, 0.1)', text: '#C4B5FD' };
   if (t.includes('react')) return { border: '#06B6D4', bg: 'rgba(6, 182, 212, 0.1)', text: '#67E8F9' };
   if (t.includes('vue')) return { border: '#10B981', bg: 'rgba(16, 185, 129, 0.1)', text: '#6EE7B7' };
   if (t.includes('postgre') || t.includes('rest')) return { border: '#3B82F6', bg: 'rgba(59, 130, 246, 0.1)', text: '#93C5FD' };
   if (t.includes('c#') || t.includes('docker')) return { border: '#EC4899', bg: 'rgba(236, 72, 153, 0.1)', text: '#F9A8D4' };
   return { border: '#333333', bg: '#111111', text: '#D1D5DB' };
+};
+
+// --- Experience Component ---
+const ExperienceItem = ({ exp, isFirst }: { exp: any; isFirst: boolean }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div className="group relative -ml-[2px] py-1 pl-6 md:pl-8 transition-all duration-300 border-l-[2px] border-transparent hover:border-[#7C3AED] hover:translate-x-1 hover:bg-[rgba(124,58,237,0.04)] rounded-r-xl">
+      <div className={`absolute -left-[6.5px] top-2.5 w-[11px] h-[11px] rounded-full border-[2px] transition-all duration-300 z-10 ${isFirst ? 'bg-[#7C3AED] border-[#7C3AED] shadow-[0_0_10px_rgba(124,58,237,0.8)]' : 'bg-[#040404] border-[#555] group-hover:border-[#7C3AED]'}`}></div>
+
+      <div className="flex flex-col mb-2 text-left">
+        <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-white transition-colors">{exp.company}</h3>
+        <h4 className="text-sm md:text-base text-[#3B82F6] font-semibold mt-1">{exp.role}</h4>
+        <span className="text-xs md:text-sm text-gray-400 mt-1">{exp.date}</span>
+      </div>
+      
+      <button 
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="flex md:hidden items-center space-x-2 text-sm text-[#3B82F6] hover:text-[#60A5FA] transition-colors mb-3 focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:ring-offset-2 focus:ring-offset-[#040404] rounded-md px-1 -ml-1 py-0.5"
+      >
+        <span>Ver detalhes</span>
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="14" 
+          height="14" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+        >
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+      </button>
+
+      <div className={`grid transition-all duration-300 ease-in-out ${isExpanded ? 'grid-rows-[1fr] opacity-100 mb-4' : 'grid-rows-[0fr] opacity-0 mb-0'} md:grid-rows-[1fr] md:opacity-100 md:mb-4`}>
+        <div className="overflow-hidden">
+          <p className="text-gray-400 leading-relaxed text-xs md:text-sm">{exp.desc}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {exp.tags.map((tag: string) => {
+          const colors = getTagColors(tag);
+          return (
+            <span
+              key={tag}
+              className="px-2.5 py-1 rounded-full text-[10px] md:text-xs font-semibold tracking-wide cursor-default transition-all"
+              style={{
+                border: `1px solid ${colors.border}`,
+                backgroundColor: colors.bg,
+                color: colors.text
+              }}
+            >
+              {tag}
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 // --- Main Component ---
@@ -130,6 +205,7 @@ const Index = () => {
           <a href="#education" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">{t.nav.education}</a>
           <a href="#skills" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">{t.nav.skills}</a>
           <a href="#projects" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">{t.nav.projects}</a>
+          <a href="#contact" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">{t.nav.contact}</a>
         </nav>
 
         <div className="flex items-center justify-end space-x-4 md:space-x-8 z-10 w-auto">
@@ -371,39 +447,12 @@ const Index = () => {
               <div className="absolute left-[8px] md:left-[16px] top-2 bottom-0 w-[2px] bg-gradient-to-b from-[#7C3AED] to-transparent"></div>
 
               {[
-                { company: "FBM Brasil", date: `2023 — ${t.experience.present}`, role: "Fullstack Developer", desc: t.experience.fbm, tags: ["Java", "Spring Boot", "VueJS", "PostgreSQL"] },
-                { company: "C6 Bank", date: "Jul 2022 — Dez 2023", role: lang === 'pt' ? "Frontend Developer" : "Frontend Developer", desc: t.experience.c6, tags: ["Java", "ReactJS", "REST APIs"] },
-                { company: "PayGo", date: "Jan 2021 — Jun 2022", role: lang === 'pt' ? "Fullstack Developer" : "Fullstack Developer", desc: t.experience.paygo, tags: ["C#", "ReactJS", "Docker"] }
+                { company: "FBM Brasil", date: `2023 — ${t.experience.present}`, role: "Fullstack Developer", desc: t.experience.fbm, tags: ["Java", "Spring Boot", "C#", "C++", "VueJS", "PostgreSQL", "MySQL", "Jasper Report"] },
+                { company: "C6 Bank", date: "Jul 2022 — Dez 2023", role: lang === 'pt' ? "Frontend Developer" : "Frontend Developer (Intern)", desc: t.experience.c6, tags: ["Kotlin", "Spring Boot", "ReactJS", "Storybook", "Atomic Design", "REST APIs"] },
+                { company: "PayGo", date: "Jan 2021 — Jun 2022", role: "Fullstack Developer", desc: t.experience.paygo, tags: ["C#", "ReactJS", "Docker", "SQL Server"] }
               ].map((exp, i) => (
                 <FadeIn key={i} delay={i * 100}>
-                  <div className="group relative -ml-[2px] py-1 pl-6 md:pl-8 transition-all duration-300 border-l-[2px] border-transparent hover:border-[#7C3AED] hover:translate-x-1 hover:bg-[rgba(124,58,237,0.04)] rounded-r-xl">
-                    <div className={`absolute -left-[6.5px] top-2.5 w-[11px] h-[11px] rounded-full border-[2px] transition-all duration-300 z-10 ${i === 0 ? 'bg-[#7C3AED] border-[#7C3AED] shadow-[0_0_10px_rgba(124,58,237,0.8)]' : 'bg-[#040404] border-[#555] group-hover:border-[#7C3AED]'}`}></div>
-
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-1 md:mb-2">
-                      <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-white transition-colors">{exp.company}</h3>
-                      <span className="text-xs md:text-sm text-gray-500 font-mono mt-0.5 md:mt-0">{exp.date}</span>
-                    </div>
-                    <h4 className="text-sm md:text-base text-gray-300 mb-2 md:mb-3 font-medium">{exp.role}</h4>
-                    <p className="text-gray-400 leading-relaxed mb-4 text-xs md:text-sm">{exp.desc}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tags.map(tag => {
-                        const colors = getTagColors(tag);
-                        return (
-                          <span
-                            key={tag}
-                            className="px-2.5 py-1 rounded-full text-[10px] md:text-xs font-semibold tracking-wide cursor-default transition-all"
-                            style={{
-                              border: `1px solid ${colors.border}`,
-                              backgroundColor: colors.bg,
-                              color: colors.text
-                            }}
-                          >
-                            {tag}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  </div>
+                  <ExperienceItem exp={exp} isFirst={i === 0} />
                 </FadeIn>
               ))}
             </div>
@@ -506,6 +555,79 @@ const Index = () => {
         </section>
 
       </main>
+
+      {/* Contact Section */}
+      <section id="contact" className="w-full max-w-5xl mx-auto px-6 md:px-8 pb-16 md:pb-32 z-40 relative">
+        <FadeIn>
+          <div className="flex items-center space-x-4 mb-8 md:mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white">{t.contact.title}</h2>
+            <div className="h-px flex-1 bg-[#1e1e1e]"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* Email Card */}
+            <div className="group relative bg-[#080808] p-6 md:p-8 rounded-xl border border-[#222] hover:border-[#7C3AED] transition-all duration-300 flex flex-col items-center text-center">
+              <div className="w-12 h-12 bg-[#7C3AED] bg-opacity-10 text-[#7C3AED] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">E-mail</h3>
+              <p className="text-gray-400 text-sm mb-6">gabrielalvessilva02@outlook.com</p>
+              <div className="flex flex-wrap justify-center gap-3 mt-auto">
+                <button 
+                  onClick={(e) => { 
+                    navigator.clipboard.writeText('gabrielalvessilva02@outlook.com'); 
+                    const btn = e.currentTarget;
+                    const span = btn.querySelector('span');
+                    if (span) {
+                      const oldText = span.innerText;
+                      span.innerText = t.contact.copied;
+                      setTimeout(() => span.innerText = oldText, 2000);
+                    }
+                  }} 
+                  className="flex items-center space-x-2 text-xs font-semibold px-4 py-2 border border-[#333] hover:border-white hover:text-white text-gray-400 rounded-md transition-all"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                  <span>Copiar</span>
+                </button>
+                <a href="mailto:gabrielalvessilva02@outlook.com" className="flex items-center space-x-2 text-xs font-semibold px-4 py-2 bg-[#7C3AED] hover:bg-[#6D28D9] text-white rounded-md transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                  <span>Enviar E-mail</span>
+                </a>
+              </div>
+            </div>
+            
+            {/* WhatsApp Card */}
+            <div className="group relative bg-[#080808] p-6 md:p-8 rounded-xl border border-[#222] hover:border-[#10B981] transition-all duration-300 flex flex-col items-center text-center">
+              <div className="w-12 h-12 bg-[#10B981] bg-opacity-10 text-[#10B981] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">WhatsApp</h3>
+              <p className="text-gray-400 text-sm mb-6">+55 11 91576-2851</p>
+              <div className="flex flex-wrap justify-center gap-3 mt-auto">
+                <button 
+                  onClick={(e) => { 
+                    navigator.clipboard.writeText('11915762851'); 
+                    const btn = e.currentTarget;
+                    const span = btn.querySelector('span');
+                    if (span) {
+                      const oldText = span.innerText;
+                      span.innerText = t.contact.copied;
+                      setTimeout(() => span.innerText = oldText, 2000);
+                    }
+                  }} 
+                  className="flex items-center space-x-2 text-xs font-semibold px-4 py-2 border border-[#333] hover:border-white hover:text-white text-gray-400 rounded-md transition-all"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                  <span>Copiar</span>
+                </button>
+                <a href="https://wa.me/5511915762851" target="_blank" rel="noreferrer" className="flex items-center space-x-2 text-xs font-semibold px-4 py-2 bg-[#10B981] hover:bg-[#059669] text-white rounded-md transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <span>Mensagem</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
 
       {/* Footer */}
       <footer className="w-full text-center py-8 text-xs text-gray-600 border-t border-[#111] z-40 bg-black">
