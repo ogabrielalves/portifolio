@@ -32,8 +32,8 @@ export const About = ({ lang }: { lang: 'pt' | 'en' }) => {
         <div className="w-full h-px bg-border mt-6"></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-[40px] md:gap-[64px] items-start">
-        
+      <div className="grid grid-cols-1 lg:grid-cols-[56%_44%] gap-[40px] lg:gap-[72px] items-start">
+
         {/* Left Column: Code Block */}
         <div className="rounded-[2px] bg-[#0D0D0D] border border-[#1A1A1A] font-mono text-xs sm:text-sm overflow-hidden">
           {/* Header */}
@@ -51,7 +51,7 @@ export const About = ({ lang }: { lang: 'pt' | 'en' }) => {
           </div>
           {/* Body */}
           <div className="p-4 sm:p-6 md:p-8 overflow-x-auto text-gray-300 leading-relaxed max-w-full w-full">
-            <pre className="text-[11px] sm:text-xs md:text-sm whitespace-pre">
+            <pre className="text-[11px] sm:text-xs md:text-sm lg:text-[15px] whitespace-pre">
               <code>
                 <span className="text-[#c084fc]">public class</span> <span className="text-[#facc15]">AboutMe</span> {'{\n\n'}
                 {'    '}<span className="text-[#c084fc]">private static final</span> <span className="text-[#60a5fa]">String</span> <span className="text-white">name</span>      = <span className="text-[#4ade80]">"Gabriel"</span>;{'\n'}
@@ -74,7 +74,7 @@ export const About = ({ lang }: { lang: 'pt' | 'en' }) => {
 
         {/* Right Column: Text & Metrics */}
         <div className="flex flex-col justify-center">
-          <p className="font-sans text-[15px] text-white leading-[1.9] mb-8 md:mb-12">
+          <p className="font-sans text-[15px] lg:text-[16px] text-white leading-[1.9] mb-8 md:mb-12">
             {t.p1}<br/><br/>
             {t.p2}<br/><br/>
             {t.p3}

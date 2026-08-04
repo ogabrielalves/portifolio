@@ -4,7 +4,7 @@ export const Footer = ({ lang }: { lang: 'pt' | 'en' }) => {
   return (
     <footer className="w-full relative">
       <div className="w-full h-px bg-border"></div>
-      <div className="max-w-[1100px] mx-auto px-6 py-[32px] flex justify-center items-center">
+      <div className="max-w-[1280px] mx-auto px-6 py-[32px] flex justify-center items-center">
         <span className="font-sans text-[13px] text-muted-mid">Gabriel Alves © {new Date().getFullYear()} — {text}</span>
       </div>
     </footer>

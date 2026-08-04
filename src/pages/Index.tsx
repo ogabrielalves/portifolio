@@ -193,7 +193,7 @@ const Index = () => {
       <Navbar lang={lang} setLang={setLang} t={t} />
       <Hero lang={lang} t={t} />
       {/* MAIN CONTENT FEED */}
-      <main className="w-full max-w-[1100px] mx-auto px-6 flex flex-col z-40 relative">
+      <main className="w-full max-w-[1280px] mx-auto px-6 flex flex-col z-40 relative">
         <About lang={lang} />
         <Skills lang={lang} />
 

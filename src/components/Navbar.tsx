@@ -25,7 +25,7 @@ export const Navbar = ({ lang, setLang, t }: { lang: 'pt' | 'en', setLang: (l: '
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-black/50 backdrop-blur-md border-b border-border' : 'bg-transparent'}`}>
-      <div className="max-w-[1100px] w-full mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="max-w-[1280px] w-full mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="font-mono font-bold text-white text-xl hover:text-accent transition-colors duration-150 tracking-tighter w-24">
           GA

@@ -44,7 +44,7 @@ export const Hero = ({ t, lang }: { t: any, lang: 'pt' | 'en' }) => {
         />
       </div>
 
-      <div className="max-w-[1100px] w-full mx-auto px-6 flex flex-col md:flex-row items-center relative z-10 pt-20">
+      <div className="max-w-[1280px] w-full mx-auto px-6 flex flex-col md:flex-row items-center relative z-10 pt-20">
         
         {/* Left Column 65% / Text Layer */}
         <div className="w-full md:w-[65%] flex flex-col justify-center pb-20 md:pb-0 relative z-20">
