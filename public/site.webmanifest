@@ -1,0 +1,23 @@
+{
+  "name": "Gabriel Alves | Fullstack Developer",
+  "short_name": "Gabriel Alves",
+  "description": "Portfólio de Gabriel Alves, desenvolvedor Fullstack especializado em Java, Spring Boot e React.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "73x74",
+      "type": "image/png"
+    },
+    {
+      "src": "/letra-g.ico",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}

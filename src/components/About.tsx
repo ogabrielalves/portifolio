@@ -7,7 +7,8 @@ export const About = ({ lang }: { lang: 'pt' | 'en' }) => {
       p3: "Atualmente na FBM Brasil, onde desenvolvo e mantenho um servidor de comunicação com máquinas de jogos de cassino baseado em protocolo proprietário hexadecimal, faço review de código, implemento novas features, corrijo bugs e monitoro logs em produção para garantir estabilidade do sistema. Gosto de novos desafios onde possa crescer tecnicamente e aprender algo novo.",
       exp: "anos exp.",
       comp: "empresas",
-      tech: "tecnologias"
+      tech: "tecnologias",
+      clients: "clientes satisfeitos"
     },
     en: {
       title: "about me.",
@@ -16,7 +17,8 @@ export const About = ({ lang }: { lang: 'pt' | 'en' }) => {
       p3: "Currently at FBM Brasil, where I develop and maintain a communication server for casino gaming machines based on a proprietary hexadecimal protocol. I conduct code reviews, implement new features, fix bugs, and monitor logs in production to ensure system stability. I enjoy new challenges where I can grow technically and learn something new.",
       exp: "years exp.",
       comp: "companies",
-      tech: "technologies"
+      tech: "technologies",
+      clients: "happy clients"
     }
   };
   const t = dict[lang];
@@ -79,7 +81,7 @@ export const About = ({ lang }: { lang: 'pt' | 'en' }) => {
           </p>
 
           {/* Metrics */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-4">
             <div className="flex flex-col">
               <span className="font-mono text-[28px] lg:text-[36px] text-accent leading-none font-bold mb-2">4+</span>
               <span className="font-sans text-[11px] sm:text-[12px] text-muted leading-tight">{t.exp}</span>
@@ -91,6 +93,10 @@ export const About = ({ lang }: { lang: 'pt' | 'en' }) => {
             <div className="flex flex-col">
               <span className="font-mono text-[28px] lg:text-[36px] text-accent leading-none font-bold mb-2">8+</span>
               <span className="font-sans text-[11px] sm:text-[12px] text-muted leading-tight">{t.tech}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-mono text-[28px] lg:text-[36px] text-accent leading-none font-bold mb-2">4+</span>
+              <span className="font-sans text-[11px] sm:text-[12px] text-muted leading-tight">{t.clients}</span>
             </div>
           </div>
         </div>

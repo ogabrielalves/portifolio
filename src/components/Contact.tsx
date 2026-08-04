@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { EmailIcon, GithubIcon, LinkedinIcon, WhatsappIcon } from './icons/ContactIcons';
 
-const ContactRow = ({ label, value, mainActionLabel, mainActionHref, copiedOption = null, copiedText, copyText }: any) => {
+const ContactRow = ({ icon: Icon, label, value, mainActionLabel, mainActionHref, copiedOption = null, copiedText, copyText }: any) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -13,7 +14,10 @@ const ContactRow = ({ label, value, mainActionLabel, mainActionHref, copiedOptio
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between py-4 sm:py-6 border-b border-[#0F0F0F] group hover:bg-[#060606] transition-colors sm:-mx-4 sm:px-4">
       <div className="flex flex-col sm:flex-row sm:items-center">
-        <span className="font-mono text-[11px] text-[#333333] uppercase w-full sm:w-[120px] mb-1 sm:mb-0">{label}</span>
+        <span className="flex items-center gap-2 w-full sm:w-[140px] mb-1 sm:mb-0">
+          <Icon className="w-4 h-4 text-muted-mid group-hover:text-accent transition-colors shrink-0" />
+          <span className="font-mono text-[11px] text-muted-mid uppercase">{label}</span>
+        </span>
         <span className="font-sans text-[14px] text-white">{value}</span>
       </div>
       <div className="flex items-center space-x-4 mt-3 sm:mt-0 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
@@ -74,8 +78,9 @@ export const Contact = ({ lang }: { lang: 'pt' | 'en' }) => {
       </p>
 
       <div className="flex flex-col">
-        <ContactRow 
-          label="Email" 
+        <ContactRow
+          icon={EmailIcon}
+          label="Email"
           value="gabrielalvessilva02@outlook.com" 
           copiedOption="gabrielalvessilva02@outlook.com"
           mainActionLabel={t.send}
@@ -83,8 +88,9 @@ export const Contact = ({ lang }: { lang: 'pt' | 'en' }) => {
           copyText={t.copy}
           copiedText={t.copied}
         />
-        <ContactRow 
-          label="Whatsapp" 
+        <ContactRow
+          icon={WhatsappIcon}
+          label="Whatsapp"
           value="+55 11 91576-2851" 
           copiedOption="11915762851"
           mainActionLabel={t.msg}
@@ -92,14 +98,16 @@ export const Contact = ({ lang }: { lang: 'pt' | 'en' }) => {
           copyText={t.copy}
           copiedText={t.copied}
         />
-        <ContactRow 
-          label="Linkedin" 
+        <ContactRow
+          icon={LinkedinIcon}
+          label="Linkedin"
           value="linkedin.com/in/ogabrielalves" 
           mainActionLabel={t.open}
           mainActionHref="https://www.linkedin.com/in/ogabrielalves"
         />
-        <ContactRow 
-          label="GitHub" 
+        <ContactRow
+          icon={GithubIcon}
+          label="GitHub"
           value="github.com/ogabrielalves" 
           mainActionLabel={t.open}
           mainActionHref="https://github.com/ogabrielalves"

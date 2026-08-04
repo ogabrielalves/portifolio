@@ -30,8 +30,8 @@ export default {
 				accent: '#BFFF00',
 				'accent-dim': '#8FB800',
 				white: '#F5F5F5',
-				muted: '#666666',
-				'muted-mid': '#444444',
+				muted: '#A3A3A3',
+				'muted-mid': '#828282',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

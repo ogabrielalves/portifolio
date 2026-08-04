@@ -1,6 +1,19 @@
-import { Github, Linkedin } from 'lucide-react';
+import { useState } from 'react';
+import { Github, Linkedin, Loader2 } from 'lucide-react';
 
 export const Hero = ({ t, lang }: { t: any, lang: 'pt' | 'en' }) => {
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const handleDownload = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (isDownloading) return;
+    setIsDownloading(true);
+    setTimeout(() => {
+      window.location.href = "https://www.dropbox.com/scl/fi/p18hlxisxcqm2z6wztf7b/Curr-culo-Fullstack-Gabriel-Alves.pdf?rlkey=bjwncwyjcj7sgkwt81qtmavyx&st=85raedw2&dl=1";
+      setTimeout(() => setIsDownloading(false), 1000);
+    }, 1500);
+  };
+
   return (
     <section id="hero" className="relative w-full min-h-[100vh] flex items-center justify-center overflow-hidden border-b border-border">
       
@@ -66,11 +79,13 @@ export const Hero = ({ t, lang }: { t: any, lang: 'pt' | 'en' }) => {
 
           {/* CTAs */}
           <div className="flex flex-wrap items-center gap-4 mt-12 relative z-20">
-            <a 
+            <a
               href="#"
-              className="bg-accent hover:bg-accent-dim text-bg px-[28px] py-[12px] rounded-[2px] font-mono text-[13px] font-medium transition-colors duration-150 inline-flex"
+              onClick={handleDownload}
+              aria-label={lang === 'pt' ? 'Baixar currículo em PDF' : 'Download resume PDF'}
+              className={`bg-accent hover:bg-accent-dim text-bg px-[28px] py-[12px] rounded-[2px] font-mono text-[13px] font-medium transition-colors duration-150 inline-flex items-center justify-center ${isDownloading ? 'opacity-80 cursor-wait' : ''}`}
             >
-              {lang === 'pt' ? 'ver currículo' : 'view resume'}
+              {isDownloading ? <Loader2 className="w-4 h-4 animate-spin" /> : (lang === 'pt' ? 'ver currículo' : 'view resume')}
             </a>
             <a 
               href="#contact"
@@ -82,10 +97,10 @@ export const Hero = ({ t, lang }: { t: any, lang: 'pt' | 'en' }) => {
 
           {/* Social Icons */}
           <div className="flex items-center gap-5 mt-12 relative z-20">
-            <a href="https://github.com/ogabrielalves" target="_blank" rel="noreferrer" className="text-muted-mid hover:text-accent transition-colors duration-150 pointer-events-auto">
+            <a href="https://github.com/ogabrielalves" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-muted-mid hover:text-accent transition-colors duration-150 pointer-events-auto">
               <Github size={20} />
             </a>
-            <a href="https://www.linkedin.com/in/gabriel-alves-ba0064192" target="_blank" rel="noreferrer" className="text-muted-mid hover:text-accent transition-colors duration-150 pointer-events-auto">
+            <a href="https://www.linkedin.com/in/gabriel-alves-ba0064192" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-muted-mid hover:text-accent transition-colors duration-150 pointer-events-auto">
               <Linkedin size={20} />
             </a>
           </div>
